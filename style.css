@@ -1,0 +1,948 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    text-decoration: none;
+    scroll-behavior: smooth;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body{
+    overflow-x: hidden;
+}
+
+:root{
+    --primary-color: #ff9900;
+    --secondary-color: #282c34;
+}
+
+header {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1.8vw;
+    background: var(--secondary-color);
+    color: white;
+    font-size: 1.2rem;
+}
+
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 1vw;
+    margin-bottom: 1rem;
+}
+
+.logo img {
+    border-radius: 50%;
+    object-fit: cover; 
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    display: inline-block;
+    padding: 5px 0;
+}
+
+nav ul a::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background: var(--primary-color);
+    transition: width 0.3s ease-in-out;
+    transform: translateX(-50%);
+}
+
+nav ul a:hover::after {
+    width: 80%
+}
+
+.cta .button {
+    background: var(--primary-color);
+    margin-right: auto;
+    padding: 1vw 2vw;
+    text-decoration: none;
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+}
+
+
+#about {
+    padding: 5vw;
+    overflow: hidden;
+    background: #1e1e1e;
+    color: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-areas: 
+        "text features";
+    gap: 4vw;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+.about-text {
+    background: rgba(255, 255, 255, 0.08);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    padding: 2vw;
+}
+
+.about-features {
+    grid-area: features;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;
+    justify-content: center;
+}
+
+.about-text h2 {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+}
+
+.about-text p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: whitesmoke;
+}
+
+.about-text a {
+    margin-bottom: auto;
+}
+
+.divider {
+    width: 80px;
+    height: 5px;
+    background: var(--primary-color);
+    margin: 20px 0;
+}
+
+.feature {
+    background: rgba(255, 255, 255, 0.08);
+    transition: background 0.3s ease-in-out;
+    padding: .8vw;
+}
+
+.feature:hover {
+    background: rgba(255, 255, 255, 0.15);
+    scale: 1.05;
+}
+
+.feature img {
+    width: 60px;
+    margin-bottom: 10px;
+}
+
+.button {
+    background: #ff9900;
+    width: fit-content;
+    padding: .4vw 1vw;
+    color: white;
+}
+
+.button:hover {
+    background: #e08500;
+}
+
+.cursor-glow {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 20px rgba(255, 165, 0, 0.8);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    filter: blur(10px);
+    transition: opacity 0.3s ease, top 0.05s linear, left 0.05s linear;
+    opacity: 0;
+}
+
+.innovation-feature {
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.innovation-feature:hover {
+    box-shadow: 0 0 15px rgba(255, 165, 0, 0.5);
+    transform: translateY(-3px);
+}
+
+.innovation-feature img {
+    transition: transform 0.3s ease;
+}
+
+.innovation-feature:hover img {
+    transform: scale(1.05);
+}
+
+.innovation-feature p {
+    transition: color 0.3s ease;
+}
+
+.innovation-feature:hover p {
+    color: #ff9900; 
+}
+
+
+#services {
+    padding: 5vw;
+    background: #282c34;
+    color: white;
+    text-align: center;
+}
+
+.services-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#services h2 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.services-intro {
+    font-size: 1.6rem;
+    color: #ddd;
+    margin-bottom: 2rem;
+}
+
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2vw;
+    align-items: stretch;
+    margin-bottom: 3rem;
+}
+
+.service-card {
+    background: #1e1e1e; /* Темный минималистичный фон */
+    padding: 2vw;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Тонкая граница */
+}
+
+/* Тонкая интерактивность */
+.service-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+/* Сдержанный стиль для изображений */
+.service-card img {
+    width: 96px;
+    height: 96px;
+    padding: 0.6rem;
+    border-radius: 50%;
+    object-fit: cover;
+    background: white; /* Легкий фон */
+    transition: transform 0.3s ease-in-out;
+}
+
+.service-card img:hover {
+    transform: scale(1.05);
+}
+
+.details-button {
+    opacity: 0;
+    transform: translateY(10px);
+    display: inline-block;
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: white;
+    transition: opacity 0.4s ease, transform 0.4s ease, background 0.3s ease-in-out;
+    margin-top: 15px;
+}
+
+.service-card:hover .details-button {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.service-card h3 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+}
+
+.service-card p {
+    font-size: 1.2rem;
+    color: #ddd;
+    margin-top: 0.5rem;
+}
+
+.cta-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    background: #ff9900;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+}
+
+.button:hover {
+    background: #e08500;
+}
+
+.stats {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-align: center;
+    color: #ff9900;
+    transition: background 0.3s ease-in-out, transform 0.3s ease;
+}
+
+.service-card:hover .stats {
+    background: rgba(255, 165, 0, 0.15);
+    transform: scale(1.05);
+}
+
+.modal-content::before {
+    content: "";
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    background: linear-gradient(45deg, #ff9900, #ff3300, #ff9900);
+    background-size: 300% 300%;
+    border-radius: 12px;
+    filter: blur(8px);
+    z-index: -2;
+    animation: gradientBorder 8s ease infinite;
+}
+
+.modal-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.4) 50%, transparent 70%);
+    transform: skewX(-25deg);
+    opacity: 0.75;
+    z-index: -1;
+    animation: shine 2s ease-in-out infinite;
+}
+
+@keyframes gradientBorder {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+@keyframes shine {
+    from { left: -100%; }
+    to   { left: 100%; }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes innerGlow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(255,255,255,0.1), inset 0 0 10px rgba(255,165,0,0.3);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(255,255,255,0.1), inset 0 0 20px rgba(255,165,0,0.8);
+    }
+}
+
+.modal-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-content p,
+.modal-content ul {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 2.2rem;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease-in-out;
+    z-index: 10;
+}
+
+.close:hover {
+    color: #ff9900;
+}
+
+#portfolio {
+    padding: 5vw;
+    background: #1e1e1e;
+    color: white;
+    text-align: center;
+  }
+  
+  .portfolio-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  #portfolio h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  .portfolio-intro {
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    color: #ddd;
+  }
+  
+  /* Сетка для проектов */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+  
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+  
+  .portfolio-item:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Оверлей на проекте */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+  
+  .portfolio-item:hover .overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .overlay h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  /* Кнопка "Подробнее" */
+  .portfolio-details-button {
+    background: linear-gradient(45deg, #ff9900, #ff6600);
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .portfolio-details-button:hover {
+    transform: scale(1.05);
+    background: linear-gradient(45deg, #ff6600, #ff3300);
+  }
+  
+  /* Модальные окна (используем уже знакомые стили) */
+  .modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    position: relative;
+    background: #282c34;
+    color: white;
+    padding: 2rem 3rem;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.4s ease-in-out;
+    overflow: visible;
+  }
+
+  .portfolio-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem; /* Отступы вокруг модального окна */
+}
+
+/* Контент внутри модального окна */
+.portfolio-modal .modal-content {
+    position: relative;
+    background: #282c34;
+    color: white;
+    padding: 2rem;
+    width: 90%;
+    max-width: 750px;
+    max-height: 85vh; /* Ограничение по высоте */
+    overflow-y: auto; /* Включаем вертикальную прокрутку при необходимости */
+    overflow-x: hidden; /* Запрещаем горизонтальный скролл */
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Плавное появление модального окна */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Анимация внутреннего пульсирующего оранжевого свечения */
+@keyframes innerGlow {
+    0%, 100% {
+        box-shadow: 0 10px 30px rgba(255,255,255,0.1), inset 0 0 10px rgba(255,165,0,0.3);
+    }
+    50% {
+        box-shadow: 0 10px 30px rgba(255,255,255,0.1), inset 0 0 20px rgba(255,165,0,0.8);
+    }
+}
+
+/* Заголовок и текст */
+.portfolio-modal .modal-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 1rem;
+    color: #ff9900;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    position: relative;
+}
+
+/* Добавляем эффект подсвечивания заголовка */
+.portfolio-modal .modal-content h2::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, #ff9900, #ff6600);
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+/* Улучшенная анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95) rotateX(15deg);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1) rotateX(0deg);
+    }
+}
+
+.portfolio-modal .modal-content p {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    color: #ddd;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+/* Добавляем декоративную линию после каждого абзаца */
+.portfolio-modal .modal-content p::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, #ff9900, transparent);
+    border-radius: 1px;
+}
+
+/* Плавное свечение кнопки закрытия */
+.portfolio-modal .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    cursor: pointer;
+    color: white;
+    transition: color 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+}
+
+.portfolio-modal .close:hover {
+    color: #ff9900;
+    text-shadow: 0 0 12px rgba(255, 153, 0, 0.7);
+}
+
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Кнопка-ссылка */
+  .button {
+    background: #ff9900;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background 0.3s ease-in-out;
+    text-decoration: none;
+  }
+  
+  .button:hover {
+    background: #e08500;
+  }  
+
+  #character {
+    width: 75px;
+    height: 150px;
+    background: url('./src/person.png') no-repeat center center;
+    background-size: auto 100%;
+    position: absolute;
+    left: 50px;
+    bottom: 300px;
+    z-index: 999;
+}
+
+#contact {
+    background: #282c34;
+    color: white;
+    padding: 50px 20px;
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+}
+
+#contact h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 20px;
+}
+
+
+.contact-item {
+    display: flex;
+    flex-direction: column;
+    justify-self: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.contact-item img {
+    width: 50px;
+    margin-bottom: 10px;
+}
+
+.contact-item p {
+    font-size: 18px;
+    margin: 10px 0;
+}
+
+.contact-item a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 5px;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background: white;
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+    background: #007bff;
+    color: white;
+}
+
+footer {
+    background: #20232a;
+    position: relative;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 0.9rem;
+}
+
+.footer-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+footer a {
+    color: #61dafb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.character-container{
+    height: 350px;
+}
+
+.social-links {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.social-links a {
+    padding: 8px 12px;
+    border-radius: 5px;
+    background: white;
+    color: #007bff;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background 0.3s, color 0.3s;
+}
+
+.social-links a:hover {
+    background: #007bff;
+    color: white;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    footer {
+        font-size: 0.8rem;
+    }
+}
+
+
+
+
+
+@media (max-width: 780px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    .cta .button {
+        font-size: 1.2rem;
+        padding: 2vw 4vw;
+        max-width: 80%;
+    }
+
+    nav{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .logo img {
+        width: 5vw;
+    }
+
+    .about-grid {
+        grid-template-areas: 
+            "text"
+            "features";
+        display: flex;
+        flex-direction: column;
+        gap: 3vw;
+        max-width: 90%;
+    }
+
+    .about-text,
+    .about-features {
+        width: 100%;
+    }
+
+    .about-text h2 {
+        font-size: 2.5rem;
+    }
+
+    .about-text p {
+        font-size: 1.2rem;
+    }
+
+    .cta .button {
+        padding: 2vw 3vw;
+    }
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-card {
+        padding: 5vw;
+    }
+
+    #services h2 {
+        font-size: 2.8rem;
+    }
+
+    .services-intro {
+        font-size: 1.4rem;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-item {
+        width: 90%;
+    }
+
+    #contact h2 {
+        font-size: 1.8rem;
+    }
+}
